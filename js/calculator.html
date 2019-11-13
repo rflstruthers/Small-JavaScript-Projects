@@ -1,0 +1,76 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+    .frame1{margin:0 auto;text-align:center;
+        height:265px;width:200px;
+        border:8px solid #000;border-radius:5%;
+        box-shadow:10px 10px 30px gray;}/*css style for "frame1" class*/
+    #total{text-align:right;margin:4% 8%;
+        background-color:lightgray;border:2px solid #000;
+        border-radius:5%;}/*style for "total" id*/
+    button{color#696c70;margin:2% 1px;
+        height:35px;width:80px;}/*style for button tag*/
+    button:hover{color:#000;font:bold;
+        border:2px solid #000;}/*style for when mouse hovers over button*/
+    input:hover{font-weight: bold; 
+        border: 2px solid #000;}/*style for when mouse hovers over input field*/
+</style>
+</head>
+<body>
+
+<div class="frame1">
+
+    <h1 id="total">0.00</h1>
+    <br>
+
+    <!--input fields for numbers 1 and 2-->
+    Number 1: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="txt1" size="4">
+    <br><br>
+    Number 2: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="txt2" size="4">
+    <br><br><br>
+
+    <!--radio input makes it so user can only check one input box at a time-->
+    <input type="radio" name="calc" value="*" checked> *</input>&nbsp&nbsp<!--this box starts off checked-->
+    <input type="radio" name="calc" value="/"> /</input>&nbsp&nbsp
+    <input type="radio" name="calc" value="+"> +</input>&nbsp&nbsp
+    <input type="radio" name="calc" value="-"> -</input>&nbsp&nbsp
+    <br><br>
+
+    <!--calls respective fxn when user clicks on button-->
+    <button type="button" onclick="Calc()">Calculate</button>
+    <button type="button" onclick="Clear()">Clear</button>
+</div>
+
+<script>
+    //sets values of numbers 1 and 2 inputs and "total" <h1> tag to respective variables.
+    var txt1=document.getElementById("txt1");
+    var txt2=document.getElementById("txt2");
+    var total=document.getElementById("total");
+
+    function Calc(){
+        //searches DOM for inputs named "calc" that are checked, and then gets their value.
+        var result=document.querySelector('input[name="calc"]:checked').value;//checked?
+        
+        //changes input value from a string value to a numeric value, prints type of value of num1 and num2 in console.
+        var num1=parseInt(txt1.value); console.log(typeof num1); console.log(isNaN(num1));
+        var num2=parseInt(txt2.value); console.log(typeof num2); console.log(isNaN(num2));
+        
+        //preform calculation and put the result in the total <h1> tag
+        if(result=="*"){
+            total.innerHTML=(num1*num2).toFixed(2);//.toFixed(2) makes number of digits after decimal point be 2.  
+        } else if(result=="/"){
+            total.innerHTML=(num1/num2).toFixed(2);
+        } else if(result=="+"){
+            total.innerHTML=(num1+num2).toFixed(2);
+        } else if(result=="-"){
+            total.innerHTML=(num1-num2).toFixed(2);
+        };
+    };
+    //resets fields
+    function Clear(){
+        txt1.value="";txt2.value="";total.innerHTML="0.00";
+    };
+</script>
+</body>
+</html>
