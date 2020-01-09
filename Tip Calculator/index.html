@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+    <!--MY CSS-->
+    <link rel="stylesheet" href="./css/tip_calculator_style.css">
+
+    <title>Tip Calculator</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Tip Calculator</h1>
+        <div id="calculator">
+            <form>
+                <p>How much was your bill?</p>
+                <p>$ <input id="bill_amount" type="text" placeholder="Bill Amount"></p>
+                <p>How much would you like to tip?</p>
+                <select id="tip_amount">
+                    <option disabled selected value="0">Choose a Tip Amount</option>
+                    <option value="0.3">30&#37;</option>
+                    <option value="0.2">20&#37;</option>
+                    <option value="0.15">15&#37;</option>
+                    <option value="0.1">10&#37;</option>
+                    <option value="0.05">5&#37;</option>
+                </select>
+            </form>
+            <p>How many people are sharing the bill?</p>
+            <input id="number_people" type="text" placeholder="Number of People">
+            <button type="button" id="calculate">Calculate!</button>
+        </div>
+        <div id="totalTip">
+            $<span id="tip">0.00</span>
+            <small id="each">per person</small>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/tip_calculator.js"></script>
+
+</body>
